@@ -1,5 +1,5 @@
 // src/lib/api.ts
-export const API_URL = "http://localhost:8080/api/usuarios";
+export const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080/api/usuarios";
 
 export async function loginUsuario(email: string, contraseña: string) {
   const response = await fetch(`${API_URL}/login`, {
