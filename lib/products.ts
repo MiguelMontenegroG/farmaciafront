@@ -134,7 +134,7 @@ export const productService = {
       if (filtros?.ordenarPor) params.append('ordenarPor', filtros.ordenarPor)
 
   
-      const url = `http://localhost:8080/api/productos/obtener-productos${params.toString() ? '?' + params.toString() : ''}`
+      const url = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/productos/obtener-productos${params.toString() ? '?' + params.toString() : ''}`
       console.log('Fetching products from:', url)
       
       const response = await fetch(url, {
@@ -166,7 +166,7 @@ export const productService = {
 
   async getProductoPorId(id: string): Promise<Producto> {
     try {
-      const response = await fetch(`http://localhost:8080/api/productos/${id}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/productos/${id}`)
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`)
       }
@@ -227,7 +227,7 @@ export const productService = {
 
   async getCategorias(): Promise<CategoriaDTO[]> {
     try {
-      const response = await fetch('http://localhost:8080/api/categorias/obtener')
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/categorias/obtener`)
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`)
       }

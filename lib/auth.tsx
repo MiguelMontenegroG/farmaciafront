@@ -22,8 +22,8 @@ export interface AuthState {
   isAuthenticated: boolean
 }
 
-const API_URL = "http://localhost:8080/api/usuarios"
-const LOGOUT_URL = "http://localhost:8080/logout"
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/usuarios`
+const LOGOUT_URL = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/logout`
 
 export const authService = {
   async login(email: string, password: string): Promise<{ user: User; token: string }> {

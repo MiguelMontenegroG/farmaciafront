@@ -41,7 +41,7 @@ const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => 
   try {
     setUploading(true);
 
-    const res = await fetch("http://localhost:8080/api/imagenes/subir", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/imagenes/subir`, {
       method: "POST",
       body: formData,
     });

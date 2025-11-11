@@ -19,7 +19,7 @@ export interface ComentariosResponse {
   total: number
 }
 
-const API_URL = "http://localhost:8080/api/comentarios"
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/comentarios`
 
 export const comentarioService = {
   async crearComentario(comentario: ComentarioDTO): Promise<ComentarioDTO> {

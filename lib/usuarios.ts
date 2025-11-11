@@ -51,7 +51,7 @@ export interface ListaUsuariosResponseDTO {
 
 export interface PerfilUsuarioDTO extends UsuarioDetalleDTO {}
 
-const API_BASE_URL = "http://localhost:8080/api/admin/usuarios"
+const API_BASE_URL = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/admin/usuarios`
 
 // Función auxiliar para obtener token
 const getToken = () => {

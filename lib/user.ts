@@ -50,7 +50,7 @@ export const userService = {
       const currentUser = JSON.parse(userStr)
       
       // Llamar a la API del backend para obtener el perfil completo
-      const response = await fetch(`http://localhost:8080/api/usuarios/${currentUser.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080"}/api/usuarios/${currentUser.id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
